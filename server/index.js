@@ -19,12 +19,16 @@ app.get("/api/fortune", getFortune)
 //ADD A RANDOM USER
 const {addARandomUser} = require('./controller')
 
-app.post("/api/add-a-compliment", addARandomUser)
+app.post("/api/users", addARandomUser)
 //UPDATE RANDOM USER
 const {updateRandomUser} = require('./controller')
 
-app.put('/api/update-random-user', updateRandomUser)
+app.put('/api/users/:username', updateRandomUser)
+//DELETE RANDOM USER
+const {deleteRandomUser} = require('./controller')
 
+app.delete('/api/users/:username', deleteRandomUser)
 
 
 app.listen(4000, () => console.log("Server running on 4000"));
+

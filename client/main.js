@@ -32,7 +32,7 @@ const addARandomUser = () => {
         firstName: 'Parry',
         lastName: 'Hotter',
     }
-    axios.post("http://localhost:4000/api/add-a-compliment/", newUser)
+    axios.post("http://localhost:4000/api/users/", newUser)
         .then(res => {
             alert(res.data)
         })
@@ -46,10 +46,16 @@ const updateRandomUser = () => {
     let newUsername = {
         username: 'photter123'
     }
-    axios.put('/api/update-random-user/', newUsername).then(res => {
-        alert(res.data)
-    })
+    axios.put('/api/users/Random123', newUsername).then(res => alert(res.data))
 }
 
 updateBtn.addEventListener('click', updateRandomUser)
 //DELETE RANDOM USER
+const deleteUserBtn = document.getElementById('deleteRandomUser')
+
+const deleteRandomUser = () => {
+    axios.delete('/api/users/photter123').then(res => alert(res.data))
+}
+
+deleteUserBtn.addEventListener('click', deleteRandomUser)
+

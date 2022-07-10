@@ -30,5 +30,13 @@ module.exports = {
             newUser.username = newUsername
         }
         res.status(200).send(`Random User's Username has been updated to ${newUsername}`)
+    },
+    deleteRandomUser: (req, res) => {
+        let existingUsername = req.params.username
+        if(newUser.username === existingUsername){
+            delete newUser
+        }
+        res.status(200).send('The Random User you created has been deleted')
     }
 }
+
